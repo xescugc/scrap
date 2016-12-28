@@ -89,7 +89,7 @@ func doUpdate() error {
 		fmt.Printf("Nothing to update it's the same version: %v :)\n", version)
 		return nil
 	} else {
-		fmt.Print("Updating from version %v to %v\n", version, githubRepository.TagName)
+		fmt.Prinf("Updating from version %v to %v\n", version, githubRepository.TagName)
 	}
 
 	if err != nil {
