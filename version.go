@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 var (
-	version = "1.0.1"
+	version = "1.0.2"
 )
 
 func printVersion() {
