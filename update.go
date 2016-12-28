@@ -103,7 +103,13 @@ func doUpdate() error {
 	defer resp.Body.Close()
 
 	err = update.Apply(resp.Body, update.Options{})
-	return err
+
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("Successfully updated to version: %v\n", githubRepository.TagName)
+	return nil
 }
 
 func getGithubRepository() (*GithubRepository, error) {
