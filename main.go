@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"encoding/csv"
 	"errors"
+	"fmt"
 	"io"
 	"io/ioutil"
 	"log"
@@ -41,7 +42,8 @@ var (
 
 func checkError(msg string, err error) {
 	if err != nil {
-		log.Fatal(msg, err)
+		fmt.Println(msg, err)
+		os.Exit(1)
 	}
 }
 
@@ -190,7 +192,7 @@ func validateRequiredOpts() error {
 	}
 
 	if len(*search) == 0 || !validSearch.MatchString(*search) {
-		return errors.New("Not a supported --search type")
+		return errors.New("Not a supported/missing -s --search type")
 	}
 	return nil
 }
